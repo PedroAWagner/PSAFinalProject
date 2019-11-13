@@ -3,5 +3,6 @@ namespace IPRF.Models
 {
     public enum TaxCalculationType
     {
+        SIMPLE, COMPLETE
     }
 }
