@@ -5,56 +5,56 @@ namespace IPRF.Models
     {
         private static double calculous(User u)
         {
-            double baseDeCalculo = u.getTotRend() - u.getContrPrev();
-            double txDescDep = 0.0;
-            if (u.getIdade() < 65)
+            double calculousBase = u.getTotalIncome() - u.getContrPrev();
+            double dependentTaxDiscount = 0.0;
+            if (u.getAge() < 65)
             {
-                if ((u.getNroDep() > 0) && (u.getNroDep() <= 2))
+                if ((u.getNumberOfDependents() > 0) && (u.getNumberOfDependents() <= 2))
                 {
-                    txDescDep = 0.02;
+                    dependentTaxDiscount = 0.02;
                 }
-                else if ((u.getNroDep() > 2) && (u.getNroDep() <= 5))
+                else if ((u.getNumberOfDependents() > 2) && (u.getNumberOfDependents() <= 5))
                 {
-                    txDescDep = 0.035;
+                    dependentTaxDiscount = 0.035;
                 }
-                else if (u.getNroDep() > 5)
+                else if (u.getNumberOfDependents() > 5)
                 {
-                    txDescDep = 0.05;
+                    dependentTaxDiscount = 0.05;
                 }
             }
             else
             {
-                if ((u.getNroDep() > 0) && (u.getNroDep() <= 2))
+                if ((u.getNumberOfDependents() > 0) && (u.getNumberOfDependents() <= 2))
                 {
-                    txDescDep = 0.03;
+                    dependentTaxDiscount = 0.03;
                 }
-                else if ((u.getNroDep() > 2) && (u.getNroDep() <= 5))
+                else if ((u.getNumberOfDependents() > 2) && (u.getNumberOfDependents() <= 5))
                 {
-                    txDescDep = 0.045;
+                    dependentTaxDiscount = 0.045;
                 }
-                else if (u.getNroDep() > 5)
+                else if (u.getNumberOfDependents() > 5)
                 {
-                    txDescDep = 0.06;
+                    dependentTaxDiscount = 0.06;
                 }
             }
-            double descDep = baseDeCalculo * txDescDep;
-            baseDeCalculo = baseDeCalculo - descDep;
-            double impPagar;
-            if (baseDeCalculo <= 12000.0)
+            double dependentDiscount = calculousBase * dependentTaxDiscount;
+            calculousBase = calculousBase - dependentDiscount;
+            double finalTax;
+            if (calculousBase <= 12000.0)
             {
-                impPagar = 0;
+                finalTax = 0;
             }
-            else if ((baseDeCalculo >= 12000.0) && (baseDeCalculo < 24000.0))
+            else if ((calculousBase >= 12000.0) && (calculousBase < 24000.0))
             {
-                impPagar = (baseDeCalculo - 12000.0) * 0.15;
+                finalTax = (calculousBase - 12000.0) * 0.15;
             }
             else
             {
-                double p1 = (23999.0 - 12000.0) * 0.15;
-                double p2 = (baseDeCalculo - 23999.0) * 0.275;
-                impPagar = p1 + p2;
+                double tax1 = (23999.0 - 12000.0) * 0.15;
+                double tax2 = (calculousBase - 23999.0) * 0.275;
+                finalTax = tax1 + tax2;
             }
-            return (impPagar);
+            return (finalTax);
         }
     }
 }

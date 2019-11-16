@@ -7,18 +7,18 @@ namespace IPRF.Models
     {
         private String name;
         private String cpf;
-        private int yearOfBirth;
+        private int age;
         private int numberDep;
         private double prev;
         private double totalIncome;
         private SimpleTaxCalculous tax;
 
-        public string getNome()
+        public string getName()
         {
             return this.name;
         }
 
-        public void setNome(string value)
+        public void setName(string value)
         {
             this.name = value;
         }
@@ -33,22 +33,22 @@ namespace IPRF.Models
             cpf = value;
         }
 
-        public int getIdade()
+        public int getAge()
         {
-            return yearOfBirth;
+            return age;
         }
 
-        public void setIdade(int value)
+        public void setAge(int value)
         {
-            yearOfBirth = value;
+            age = value;
         }
 
-        public int getNroDep()
+        public int getNumberOfDependents()
         {
             return numberDep;
         }
 
-        public void setNroDep(int value)
+        public void setNumberOfDependents(int value)
         {
             numberDep = value;
         }
@@ -63,12 +63,12 @@ namespace IPRF.Models
             prev = value;
         }
 
-        public double getTotRend()
+        public double getTotalIncome()
         {
             return totalIncome;
         }
 
-        public void setTotRend(double value)
+        public void setTotalIncome(double value)
         {
             totalIncome = value;
         }
@@ -79,24 +79,24 @@ namespace IPRF.Models
         }
 
 
-        public void setImpostoDevido(SimpleTaxCalculous value)
+        public void setOwedTax(SimpleTaxCalculous value)
         {
             tax = value;
         }
 
-        public User(String nome, String cpf, int idade,
-                        int nroDep, double contrPrev, double totRend)
+        public User(String name, String cpf, int age,
+                        int numberOfDependents, double contrPrev, double totalIncome)
         {
             this.prev = contrPrev;
             this.cpf = cpf;
-            this.yearOfBirth = idade;
-            this.name = nome;
-            this.numberDep = nroDep;
-            this.totalIncome = totRend;
-            this.tax = new CalculoIrpfSimplificado();
+            this.age = age;
+            this.name = name;
+            this.numberDep = numberOfDependents;
+            this.totalIncome = totalIncome;
+            this.tax = new SimpleTaxCalculous();
         }
 
-        public void defineCalculo(SimpleTaxCalculous calc)
+        public void defineCalculous(SimpleTaxCalculous calc)
         {
             tax = calc;
         }
@@ -108,7 +108,7 @@ namespace IPRF.Models
             sb.Append(",");
             sb.Append(cpf);
             sb.Append(",");
-            sb.Append(yearOfBirth);
+            sb.Append(age);
             sb.Append(",");
             sb.Append(numberDep);
             sb.Append(",");

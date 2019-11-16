@@ -5,7 +5,7 @@ namespace IPRF.Models
     {
         public double calculous(User u)
         {
-            double calculousBase = u.getTotRend() - u.getContrPrev();
+            double calculousBase = u.getTotalIncome() - u.getContrPrev();
             double defaultDiscount = calculousBase * 0.5;
             calculousBase -= defaultDiscount;
             double finalTax;
