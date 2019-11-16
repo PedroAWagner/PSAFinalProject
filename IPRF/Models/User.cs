@@ -11,7 +11,7 @@ namespace IPRF.Models
         private int numberDep;
         private double prev;
         private double totalIncome;
-        private TaxCalculation tax;
+        private SimpleTaxCalculous tax;
 
         public string getNome()
         {
@@ -79,7 +79,7 @@ namespace IPRF.Models
         }
 
 
-        public void setImpostoDevido(TaxCalculation value)
+        public void setImpostoDevido(SimpleTaxCalculous value)
         {
             tax = value;
         }
@@ -96,7 +96,7 @@ namespace IPRF.Models
             this.tax = new CalculoIrpfSimplificado();
         }
 
-        public void defineCalculo(TaxCalculation calc)
+        public void defineCalculo(SimpleTaxCalculous calc)
         {
             tax = calc;
         }

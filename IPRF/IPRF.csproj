@@ -11,5 +11,6 @@
   <ItemGroup>
     <Compile Remove="Models\IrpfFacade.cs" />
     <Compile Remove="Models\EmptyStruct.cs" />
+    <Compile Remove="Models\EmptyClass.cs" />
   </ItemGroup>
 </Project>
