@@ -2,7 +2,7 @@
 {
     public class CalculationFactory
     {
-        public static TaxCalculation instanceOf(TaxCalculationType type)
+        public static SimpleTaxCalculous instanceOf(TaxCalculationType type)
         {
             switch(type)
             {

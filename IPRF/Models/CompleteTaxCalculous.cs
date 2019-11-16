@@ -1,42 +1,38 @@
 ﻿using System;
 namespace IPRF.Models
 {
-    public class CompleteTaxCalculous: TaxCalculation
+    public class CompleteTaxCalculous: SimpleTaxCalculous
     {
-        public CompleteTaxCalculous()
+        private static double calculous(User u)
         {
-        }
-
-        private static double calculous(User c)
-        {
-            double baseDeCalculo = c.getTotRend() - c.getContrPrev();
+            double baseDeCalculo = u.getTotRend() - u.getContrPrev();
             double txDescDep = 0.0;
-            if (c.getIdade() < 65)
+            if (u.getIdade() < 65)
             {
-                if ((c.getNroDep() > 0) && (c.getNroDep() <= 2))
+                if ((u.getNroDep() > 0) && (u.getNroDep() <= 2))
                 {
                     txDescDep = 0.02;
                 }
-                else if ((c.getNroDep() > 2) && (c.getNroDep() <= 5))
+                else if ((u.getNroDep() > 2) && (u.getNroDep() <= 5))
                 {
                     txDescDep = 0.035;
                 }
-                else if (c.getNroDep() > 5)
+                else if (u.getNroDep() > 5)
                 {
                     txDescDep = 0.05;
                 }
             }
             else
             {
-                if ((c.getNroDep() > 0) && (c.getNroDep() <= 2))
+                if ((u.getNroDep() > 0) && (u.getNroDep() <= 2))
                 {
                     txDescDep = 0.03;
                 }
-                else if ((c.getNroDep() > 2) && (c.getNroDep() <= 5))
+                else if ((u.getNroDep() > 2) && (u.getNroDep() <= 5))
                 {
                     txDescDep = 0.045;
                 }
-                else if (c.getNroDep() > 5)
+                else if (u.getNroDep() > 5)
                 {
                     txDescDep = 0.06;
                 }
